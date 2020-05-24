@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 const displayName = (node) => {
   switch (node.type) {
@@ -27,6 +27,6 @@ const formatEach = (nodes, prefix) => {
   return result;
 };
 
-exports.format = (node) => {
+export const format = (node) => {
   return `${node.name}\n${formatEach(node.children, '')}`;
 };

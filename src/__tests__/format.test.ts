@@ -1,4 +1,4 @@
-const { format } = require('../format');
+import { format } from '../format';
 
 describe('format', () => {
   test('only root', () => {

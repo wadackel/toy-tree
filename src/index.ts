@@ -1,8 +1,8 @@
-const meow = require('meow');
-const { read } = require('./read');
-const { format } = require('./format');
+import meow from 'meow';
+import { read } from './read';
+import { format } from './format';
 
-exports.main = (argv, stdout, stderr) => {
+export const main = (argv, stdout, stderr) => {
   const cli = meow(
     `
     Usage

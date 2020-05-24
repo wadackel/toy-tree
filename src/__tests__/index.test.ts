@@ -1,4 +1,4 @@
-const { main } = require('../');
+import { main } from '../';
 
 describe('toy-tree', () => {
   let stdout;
