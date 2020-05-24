@@ -7,6 +7,8 @@ const displayName = (node: TreeNode) => {
       return node.name;
     case 'directory':
       return chalk.cyan(node.name);
+    case 'symlink':
+      return `${chalk.green(node.name)} -> ${chalk.cyan(node.link)}`;
   }
 };
 
