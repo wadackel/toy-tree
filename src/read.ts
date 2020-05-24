@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import { TODO_any } from './types';
+import { Options, TreeNode, DirectoryNode } from './types';
 
-const readDirectory = (dir, depth, options) => {
+const readDirectory = (dir: string, depth: number, options: Options) => {
   if (options.level < depth) {
     return [];
   }
 
   const dirents = fs.readdirSync(dir, { withFileTypes: true });
-  const nodes: TODO_any = [];
+  const nodes: TreeNode[] = [];
 
   dirents.forEach((dirent) => {
     if (dirent.name.startsWith('.')) {
@@ -36,8 +36,8 @@ const readDirectory = (dir, depth, options) => {
   return nodes;
 };
 
-export const read = (dir, options) => {
-  let stat;
+export const read = (dir: string, options: Options) => {
+  let stat: fs.Stats;
 
   try {
     stat = fs.statSync(dir);
@@ -49,7 +49,7 @@ export const read = (dir, options) => {
     throw new Error(`"${dir}" can't be opened as a directory.`);
   }
 
-  const root = {
+  const root: DirectoryNode = {
     type: 'directory',
     name: dir,
     children: readDirectory(dir, 1, options),
