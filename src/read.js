@@ -1,7 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const readDirectory = (dir) => {
+const readDirectory = (dir, depth, options) => {
+  if (options.level < depth) {
+    return [];
+  }
+
   const dirents = fs.readdirSync(dir, { withFileTypes: true });
   const nodes = [];
 
@@ -19,7 +23,11 @@ const readDirectory = (dir) => {
       nodes.push({
         type: 'directory',
         name: dirent.name,
-        children: readDirectory(path.join(dir, dirent.name)),
+        children: readDirectory(
+          path.join(dir, dirent.name),
+          depth + 1,
+          options,
+        ),
       });
     }
   });
@@ -27,7 +35,7 @@ const readDirectory = (dir) => {
   return nodes;
 };
 
-exports.read = (dir) => {
+exports.read = (dir, options) => {
   let stat;
 
   try {
@@ -43,7 +51,7 @@ exports.read = (dir) => {
   const root = {
     type: 'directory',
     name: dir,
-    children: readDirectory(dir),
+    children: readDirectory(dir, 1, options),
   };
 
   return root;
