@@ -2,6 +2,9 @@
   "private": true,
   "name": "toy-tree",
   "version": "1.0.0",
+  "bin": {
+    "toy-tree": "src/bin.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{js,ts,json,md}\""
@@ -25,5 +28,9 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "meow": "^7.0.1"
   }
 }
