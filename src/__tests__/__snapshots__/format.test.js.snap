@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`format nest 1`] = `
+"root
+|-- file1.txt
+|-- file2.txt
+|-- dir1
+|  \`-- deep1.txt
+\`-- dir2
+  \`-- deep1.txt
+"
+`;
+
+exports[`format only root 1`] = `
+"root
+"
+`;

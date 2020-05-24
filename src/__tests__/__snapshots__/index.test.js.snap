@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toy-tree -L 2 1`] = `
+"fixtures
+|-- dir1
+|  |-- file1.txt
+|  |-- file2.txt
+|  \`-- nest1
+|-- dir2
+|  |-- file1.txt
+|  |-- file2.txt
+|  \`-- file3.txt
+|-- file1.txt
+\`-- file2.txt
+"
+`;
+
+exports[`toy-tree fixtures 1`] = `
+"fixtures
+|-- dir1
+|  |-- file1.txt
+|  |-- file2.txt
+|  \`-- nest1
+|    |-- deep1.txt
+|    \`-- deep2.txt
+|-- dir2
+|  |-- file1.txt
+|  |-- file2.txt
+|  \`-- file3.txt
+|-- file1.txt
+\`-- file2.txt
+"
+`;
